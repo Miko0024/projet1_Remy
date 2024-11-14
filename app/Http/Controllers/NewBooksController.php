@@ -23,7 +23,7 @@ class NewBooksController extends Controller
     private function getNewBooks()
     {
         $books = json_decode(file_get_contents($this->jsonFile), true) ?? [];
-        $cutoffDateTime = Carbon::now()->subHours(24);
+        $cutoffDateTime = Carbon::now()->subHours(48);
 
         return array_filter($books, function($book) use ($cutoffDateTime) {
             if (!isset($book['created_at'])) {
