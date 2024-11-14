@@ -1,0 +1,706 @@
+body {
+    background: #ebe2d0 !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  main {
+    flex: 1;
+  }
+  
+  header {
+    background-color: #ddbf99;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 10px 0;
+  }
+  
+  .navbar .container .navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .navbar .navbar-collapse img {
+    width: 70px; /* Taille de l'image */
+    margin: 0 20px;
+  }
+  
+  .navbar .nav-link {
+    margin: 10px 15px; /* Espacement entre les liens */
+    text-align: center;
+  }
+  
+  .social {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: black;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .social img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  footer {
+    background-color: #ddbf99;
+    font-weight: bolder;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .footcontainer .social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-inline: 10px;
+  }
+  
+  .sociallogo {
+    width: 30px; /* Taille de l'image */
+    margin: 0 10px;
+  }
+  
+  .mess {
+    padding: 20px;
+  }
+  
+  /* Pour les petits écrans (smartphones) */
+  @media (max-width: 375px) {
+    header {
+      position: static;
+      padding: 10px 0;
+    }
+  
+    .navbar .container .navbar-collapse {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar .navbar-collapse img {
+      margin: 10px 0;
+    }
+  
+    .navbar .nav-link {
+      margin: 5px 0;
+    }
+  
+    main {
+      padding-top: 60px; /* Laisser de l'espace pour le header */
+      padding-bottom: 50px; /* Laisser de l'espace pour le footer */
+    }
+  
+    .mess {
+      padding: 15px;
+    }
+  
+    footer {
+      position: static;
+    }
+  }
+  
+  /* Pour les écrans moyens (tablettes) */
+  @media (max-width: 768px) {
+    header {
+      padding: 10px 0;
+    }
+  
+    .navbar .container .navbar-collapse {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .navbar .navbar-collapse img {
+      margin: 0 20px;
+    }
+  
+    .navbar .nav-link {
+      margin: 10px 15px;
+    }
+  }
+
+/* CSS pour gerer la vue messages.blade.php */
+.mess {
+    padding: 20px;
+}
+
+.h1mess {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.messages-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes égales */
+    gap: 20px; /* Espacement entre les messages */
+    justify-items: stretch; /* Pour s'assurer que les éléments s'étendent sur toute la largeur de la colonne */
+}
+
+.message-box {
+    background-color: #f5f5f5; /* Couleur de fond de la box */
+    border: 1px solid #ddd; /* Bordure pour chaque box */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-box h2 {
+    font-size: 1rem;
+    font-weight: normal;
+    margin: 5px 0;
+}
+
+.message-box span {
+    font-weight: bold;
+    margin-left: 10px; /* Un petit espace entre le label et la valeur */
+}
+
+.message-box textarea {
+    width: 93%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    resize: none; /* Empêche de redimensionner la zone de texte */
+}
+
+.message-box h2{
+    color:darkblue;
+    font-weight: bold;
+}
+/* Flexbox pour aligner les labels et valeurs sur la même ligne */
+.message-line {
+    display: flex;
+    align-items: center; /* Centre verticalement les éléments */
+    margin-bottom: 10px; /* Un peu d'espace entre les lignes */
+}
+
+.message-line h2 {
+    margin: 0; /* Supprime la marge par défaut sur le h2 */
+    padding-right: 10px; /* Ajoute un petit espace entre le label et la valeur */
+}
+
+/* Pour ajuster la mise en page sur les écrans plus petits */
+@media (max-width: 1200px) {
+    .messages-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur les écrans plus petits */
+    }
+}
+
+@media (max-width: 900px) {
+    .messages-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur les écrans encore plus petits */
+    }
+}
+
+@media (max-width: 600px) {
+    .messages-container {
+        grid-template-columns: 1fr; /* 1 colonne sur les écrans très petits */
+    }
+}
+
+/*CSS pour la vue contact.blade.php*/
+.contactform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Occupe toute la hauteur de la fenêtre */
+    padding-top: 80px; /* Laisser de l'espace pour le header */
+    padding-bottom: 20px;
+  }
+  
+  .form-container {
+    background-color: #f5f5f5; /* Couleur de fond du box */
+    padding: 20px;
+    border-radius: 8px; /* Bords arrondis du box */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Largeur maximale du box */
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 100%;
+    max-width: 150px; /* Largeur maximale du label */
+  }
+  
+  .form-group input, .form-group textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 100%; /* Largeur égale à celle du formulaire */
+  }
+  
+  .form-group textarea {
+    resize: vertical; /* Permet de redimensionner verticalement */
+  }
+  
+  /* Styles pour les écrans moyens (tablettes) */
+  @media (max-width: 991px) {
+    .form-container {
+      max-width: 100%;
+      padding: 15px;
+    }
+  
+    .form-group label {
+      max-width: none;
+    }
+  }
+  
+  /* Styles pour les petits écrans (smartphones) */
+  @media (max-width: 767px) {
+    .contactform {
+      height: auto;
+      padding-top: 60px; /* Laisser de l'espace pour le header */
+      padding-bottom: 20px;
+    }
+  
+    .form-container {
+      box-shadow: none;
+    }
+  
+    .form-group input, .form-group textarea {
+      font-size: 0.9rem;
+    }
+  
+    .form-group {
+      margin-bottom: 10px;
+    }
+  }
+
+/* CSS pour la vue home.blade.php */
+
+#homeContainer {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: transparent;
+}
+
+/* Menu latéral fixe */
+.menu-box {
+    position: fixed;
+    width: 22%;
+    height: calc(100vh - 4rem);
+    background-color: rgba(117,174,229,0.4);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+}
+
+/* Conteneur des livres */
+#booksContainer {
+    margin-left: 30%;
+    width: 70%;
+    background-color: transparent;
+}
+
+#booksContainer h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #333;
+    margin-top: 3rem;
+}
+
+/* Grille des livres */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Style des box de livres */
+.book-box {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.book-box:hover{
+    background-color: rgba(117,174,229,0.4);
+}
+
+.book-box h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #333;
+}
+
+.book-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.book-box img:hover{
+    transform: scale(1.1);
+}
+
+.book-box p {
+    font-size: 1.0rem;
+    color: #666;
+    margin: 0.5rem 0;
+}
+
+/* Conteneur des boutons */
+.book-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+/* Style des formulaires */
+.add-box, .search-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-box .form-group, .search-box .form-group {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Style des boutons */
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Formulaire de suppression */
+form[action*="delete"] .btn {
+    background-color: #dc3545;
+}
+
+form[action*="delete"] .btn:hover {
+    background-color: #c82333;
+}
+
+/* Styles pour la page de détails */
+.book-detail-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.book-detail-card h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.book-info p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.book-info strong {
+    color: #555;
+}
+
+/* Styles pour la responsivité */
+
+/* Styles pour les petits écrans (jusqu'à 768px) */
+@media (max-width: 768px) {
+    #homeContainer {
+        flex-direction: column;
+    }
+
+    .menu-box {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+    }
+
+    #booksContainer {
+        margin-left: 0;
+        width: 100%;
+        padding-top: 1rem;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .book-box img {
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .book-actions {
+        flex-direction: column;
+    }
+
+    .add-box, .search-box {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .add-box .form-group, .search-box .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .book-detail-card {
+        padding: 1rem;
+    }
+}
+
+/* Styles pour les écrans moyens (769px à 1199px) */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .book-box img {
+        height: 200px;
+        object-fit: contain;
+    }
+}
+
+/* Styles pour les grands écrans (à partir de 1200px) */
+@media (min-width: 1200px) {
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .add-box, .search-box {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .add-box .form-group, .search-box .form-group {
+        margin-bottom: 1rem;
+    }
+}
+
+
+/*CSS pour la page des nouveautes*/
+/* Style du titre principal */
+.nnn {
+    text-align: center;
+    margin: 6rem 0 2rem 0; /* Augmentation de la marge supérieure */
+    color: #333;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 2rem; /* Ajout de padding supplémentaire */
+    position: relative; /* Pour s'assurer qu'il reste au-dessus des autres éléments */
+    z-index: 1;
+}
+
+/* Container pour la grille de livres */
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Style de chaque carte de livre */
+.card {
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Style de l'image */
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    margin-top: 5px;
+    object-fit: contain;
+    object-position: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Corps de la carte */
+.card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Titre du livre */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Prix */
+.card-text:nth-child(2) {
+    font-size: 1.2rem;
+    color: #2c5282;
+    font-weight: bold;
+}
+
+/* Auteur et date de publication */
+.card-text {
+    margin-bottom: 0.3rem;
+    color: #666;
+}
+
+/* Résumé */
+.card-text:nth-child(5) {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+    flex-grow: 1;
+}
+
+/* Date d'ajout */
+.text-muted {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Bouton détails */
+.btn-primary {
+    background-color: #3490dc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2779bd;
+}
+
+/* Media queries pour le responsive */
+@media (max-width: 1400px) {
+    .row {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .row {
+        grid-template-columns: 1fr;
+    }
+}
