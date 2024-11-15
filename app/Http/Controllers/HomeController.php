@@ -125,7 +125,8 @@ class HomeController extends Controller
         return array_filter($books, function($book) use ($query) {
             // Vérifier si les clés existent avant de faire la recherche
             return (isset($book['title']) && stripos($book['title'], $query) !== false) ||
-                (isset($book['author']) && stripos($book['author'], $query) !== false);
+                (isset($book['author']) && stripos($book['author'], $query) !== false) ||
+                (isset($book['publication_date']) && stripos($book['publication_date'], $query) !==false);
         });
     }
 }
